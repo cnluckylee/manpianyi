@@ -10,11 +10,7 @@
 <link type="text/css" rel="stylesheet" href="css/index.css">
 <link type="text/css" rel="stylesheet" href="css/jd.css">
 <link rel="shortcut icon" href="/images/manpianyi.ico">
-<script>
 
-var _hmt = _hmt || [];
-
-</script>
 <script type="text/javascript">
 
 $.fn.smartFloat = function() {
@@ -116,8 +112,8 @@ $(document).ready(function(){
         <input type="button" clstag="homepage|keycount|home2013|03a" onclick="search('key');return false;" class="button" value="搜索">
       </div>
     </div>
-    <div clstag="homepage|keycount|home2013|03b" id="hotwords"><strong>热门搜索：</strong><a style="color:#ff0000" target="_blank" href="http://sale.jd.com/act/chqNtQf7DIsVE.html">京东亲子日</a><a target="_blank" href="http://search.jd.com/Search?keyword=%E5%8D%95%E5%8F%8D%E7%9B%B8%E6%9C%BA&amp;enc=utf-8&amp;jdr=hot">单反相机</a><a target="_blank" href="http://sale.jd.com/act/chqNtQf7DIsVE.html&amp;jdr=hot">14童装新品</a><a target="_blank" href="http://list.jd.com/737-794-798-0-109147-0-0-0-0-0-1-1-1-1-12-911-4223-0.html&amp;jdr=hot">智能电视</a><a target="_blank" href="http://sale.jd.com/act/2alNE8URiIKSs.html&amp;jdr=hot">儿童理发器</a><a target="_blank" search?keyword="%E9%85%B7%E6%B4%BE8750&amp;enc=utf-8&amp;jdr=hot'" search.jd.com="" http:="">酷派8750</a><a target="_blank" href="http://list.jd.com/1713-3258-3258.html#&amp;jdr=hot">小说</a></div>
-  </div>
+    <!--<div clstag="homepage|keycount|home2013|03b" id="hotwords"><strong>热门搜索：</strong><a style="color:#ff0000" target="_blank" href="http://sale.jd.com/act/chqNtQf7DIsVE.html">京东亲子日</a><a target="_blank" href="http://search.jd.com/Search?keyword=%E5%8D%95%E5%8F%8D%E7%9B%B8%E6%9C%BA&amp;enc=utf-8&amp;jdr=hot">单反相机</a><a target="_blank" href="http://sale.jd.com/act/chqNtQf7DIsVE.html&amp;jdr=hot">14童装新品</a><a target="_blank" href="http://list.jd.com/737-794-798-0-109147-0-0-0-0-0-1-1-1-1-12-911-4223-0.html&amp;jdr=hot">智能电视</a><a target="_blank" href="http://sale.jd.com/act/2alNE8URiIKSs.html&amp;jdr=hot">儿童理发器</a><a target="_blank" search?keyword="%E9%85%B7%E6%B4%BE8750&amp;enc=utf-8&amp;jdr=hot'" search.jd.com="" http:="">酷派8750</a><a target="_blank" href="http://list.jd.com/1713-3258-3258.html#&amp;jdr=hot">小说</a></div>
+  --></div>
  
 </div>
 <div class="head">
@@ -186,7 +182,7 @@ function GetScrollTop(){
 
 </script>
 <div class="clear10"></div>
-<script type="text/javascript" src="js/util.js"></script>
+
 <div class="w1000">
   <div class="indx_jd">
     <div id="banner">
@@ -216,18 +212,11 @@ function GetScrollTop(){
   </div>
 </div>
 <div class="clear10"></div>
-<div class="w1000" id="page" style="height:36px;">
-  <div id="nav_left_layout">
-    <div class="tit">蛮便宜独家优惠</div>
-    <div class="b_hot"><a href="?&sort=1" <?php if(!isset($_GET['sort']) || intval($_GET['sort']) == 1):?>class="on"<?php endif;?> target="_self">最新</a><a href="?&sort=2" target="_self" <?php if(isset($_GET['sort']) && intval($_GET['sort']) == 2):?>class="on"<?php endif;?>>最低</a></div>
-    <div class="shengm">温馨提示：商品价格的不同可能会由于促销和打折引起的，详情可以咨询淘宝网店家 | <a href="<?php echo Yii::app()->params['siteUrl'];?>shezhi.html" target="_blank">商品打不开请点击这里</a></div>
-    <div class="b_pag"><span>1/5</span><a href="<?php echo Yii::app()->params['siteUrl'];?>2.html">下一页</a></div>
-  </div>
-</div>
-<div class="w1000" id="info" style="position:relative;">
-<div id="AdLayer"><a href="#top"><img src="images/top.gif"></a></div>
+<div class="content" id="info">
+
 <!-- 广告位：首页专题广告 -->
 <?php echo $content; ?>
+</div>
 <div class="clear10"></div>
 <div class="qd_ts" style="display:none;" id="qdmessage">
   <div class="tz-qd">
@@ -336,10 +325,9 @@ function search(searchid) {
 	var keyword = $('#'+searchid).val();
 		jQuery.ajax({
 			'url':'/index.php?r=site/index&keyword='+keyword,
-			'cache':false,
-			
+			'cache':false,			
 			'success':function(data) {
-				jQuery("div#info").html(data);
+				jQuery("div#content").html(data);
 			}
 			});
 		return false;

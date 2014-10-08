@@ -1,3 +1,13 @@
+<div class="w1000" id="page" style="height:36px;">
+  <div id="nav_left_layout">
+    <div class="tit">蛮便宜独家优惠</div>
+    <div class="b_hot"><a href="?&sort=1" <?php if(!isset($_GET['sort']) || intval($_GET['sort']) == 1):?>class="on"<?php endif;?> target="_self">最新</a><a href="?&sort=2" target="_self" <?php if(isset($_GET['sort']) && intval($_GET['sort']) == 2):?>class="on"<?php endif;?>>最低</a></div>
+    <div class="shengm">温馨提示：商品价格的不同可能会由于促销和打折引起的，详情可以咨询淘宝网店家 | <a href="<?php echo Yii::app()->params['siteUrl'];?>shezhi.html" target="_blank">商品打不开请点击这里</a></div>
+    <div class="b_pag"><span>1/<?php echo $totalpages;?></span><a href="<?php echo Yii::app()->params['siteUrl'];?>2.html">下一页</a></div>
+  </div>
+</div>
+<div class="w1000" style="position:relative;">
+<div id="AdLayer"><a href="#top"><img src="images/top.gif"></a></div>
 <?php 
 if(isset($posts) && $posts):
 foreach($posts as $item):?>
@@ -69,5 +79,73 @@ foreach($posts as $item):?>
 	 endif;
 ?>
 </div>
+<script type="text/javascript">
 
+$.fn.smartFloat = function() {
 
+    var position = function(element) {
+
+        var top = element.position().top, pos = element.css("position");
+
+        $(window).scroll(function() {
+
+            var scrolls = $(this).scrollTop();
+
+            if (scrolls > top) {
+
+                if (window.XMLHttpRequest) {
+
+                    element.css({
+
+                        position: "fixed",
+
+                        top: 0
+
+                    });
+
+                } else {
+
+                    element.css({
+
+                        top: scrolls
+
+                    });
+
+                }
+
+            }else {
+
+                element.css({
+
+                    position: pos,
+
+                    top: top
+
+                });
+
+            }
+
+        });
+
+};
+
+    return $(this).each(function() {
+
+        position($(this));
+
+    });
+
+};
+
+//绑定
+
+</script>
+<script>
+
+$(document).ready(function(){
+
+    $("#nav_left_layout").smartFloat();
+
+    });
+
+</script>

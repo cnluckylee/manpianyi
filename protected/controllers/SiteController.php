@@ -44,6 +44,7 @@ class SiteController extends Controller
 		}
 		
 		$data['sort'] = $sort;
+
 		$this->render('index',$data);
 	}
 	public function actionJump()
