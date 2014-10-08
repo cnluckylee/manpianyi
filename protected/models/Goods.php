@@ -168,7 +168,7 @@ class Goods extends CActiveRecord
 		if($sort==1)
 			$additionalParameters=array('sort'=>'updtime desc');
 		else if($sort==2)
-			$additionalParameters=array('sort'=>'totalNum desc');
+			$additionalParameters=array('sort'=>'all_comment_count desc');
 		$pagesize = 40;
 		$countstart = ($page-1)*$pagesize;
 		if($keyword)
