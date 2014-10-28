@@ -42,9 +42,6 @@ class SiteController extends Controller
 			$caiji = Categorylist::getList();
 			$data['categorylist'] = $caiji;
 		}
-		
-		$data['sort'] = $sort;
-
 		$this->render('index',$data);
 	}
 	public function actionJump()
